@@ -1,19 +1,19 @@
 package application.services;
 
-import application.dtos.MembresDto;
+import application.dtos.MembreDto;
 
 import java.util.List;
 
-public interface MembresService {
+public interface MembreService {
     /**
      * Sauve a member
      */
-    MembresDto saveMembre(MembresDto membresDto);
+    MembreDto saveMembre(MembreDto membreDto);
 
     /**
      * Get a member by it's id
      */
-    MembresDto getMembreById(Long membreId);
+    MembreDto getMembreById(Long membreId);
 
     /**
      * Delete a member by it's id
@@ -23,7 +23,7 @@ public interface MembresService {
     /**
      * Get all the members
      */
-    List<MembresDto> getAllMembres();
+    List<MembreDto> getAllMembres();
 
 
 }

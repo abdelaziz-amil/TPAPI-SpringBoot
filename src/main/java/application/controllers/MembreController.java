@@ -1,28 +1,28 @@
 package application.controllers;
 
-import application.dtos.MembresDto;
+import application.dtos.MembreDto;
 import org.springframework.web.bind.annotation.*;
 
-import application.services.impl.MembresServiceImpl;
+import application.services.impl.MembreServiceImpl;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/membres")
-public class MembresController {
+public class MembreController {
 	
-	private final MembresServiceImpl membresService;
+	private final MembreServiceImpl membresService;
 
-	public MembresController(MembresServiceImpl membresService) {
+	public MembreController(MembreServiceImpl membresService) {
 		this.membresService = membresService;
 	}
 
 	/**
 	 * <p>Get all members in the system</p>
-	 * @return List<MembresDto>
+	 * @return List<MembreDto>
 	 */
 	@GetMapping
-	public List<MembresDto> getMembres() {
+	public List<MembreDto> getMembres() {
 		return membresService.getAllMembres();
 	}
 
@@ -30,16 +30,16 @@ public class MembresController {
 	 * Method to get the member based on the ID
 	 */
 	@GetMapping("/{membreId}")
-	public MembresDto getMembre(@PathVariable Long membreId){
+	public MembreDto getMembre(@PathVariable Long membreId){
 		return membresService.getMembreById(membreId);
 	}
 
 	/**
-	 * Create a new Membres in the system
+	 * Create a new Membre in the system
 	 */
 	@PostMapping
-	public MembresDto saveMembre(final @RequestBody MembresDto membresDto){
-		return membresService.saveMembre(membresDto);
+	public MembreDto saveMembre(final @RequestBody MembreDto membreDto){
+		return membresService.saveMembre(membreDto);
 	}
 
 	/**
