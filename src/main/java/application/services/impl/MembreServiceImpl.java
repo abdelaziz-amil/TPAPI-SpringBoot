@@ -5,11 +5,13 @@ import application.entities.Membre;
 import application.repositories.MembreRepository;
 import application.services.MembreService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @Service("membresService")
 public class MembreServiceImpl implements MembreService {
 
@@ -45,9 +47,7 @@ public class MembreServiceImpl implements MembreService {
     public List<MembreDto> getAllMembres() {
         List<MembreDto> membreDtos = new ArrayList<>();
         List<Membre> membres = membreRepository.findAll();
-        membres.forEach(membre -> {
-            membreDtos.add(membreEntityToDto(membre));
-        });
+        membres.forEach(membre -> membreDtos.add(membreEntityToDto(membre)));
         return membreDtos;
     }
 
@@ -61,7 +61,7 @@ public class MembreServiceImpl implements MembreService {
         membreDto.setPrenom(membre.getPrenom());
         membreDto.setDateNaissance(membre.getDateNaissance());
         membreDto.setAdresse(membre.getAdresse());
-        membreDto.setMail(membre.getMail());
+        membreDto.setMail(membre.getEmail());
         membreDto.setMotDePasse(membre.getMotDePasse());
         return membreDto;
     }
@@ -75,7 +75,7 @@ public class MembreServiceImpl implements MembreService {
         membre.setNom(membreDto.getNom());
         membre.setPrenom(membreDto.getPrenom());
         membre.setDateNaissance(membreDto.getDateNaissance());
-        membre.setMail(membreDto.getMail());
+        membre.setEmail(membreDto.getMail());
         membre.setAdresse(membreDto.getAdresse());
         membre.setMotDePasse(membreDto.getMotDePasse());
         return membre;

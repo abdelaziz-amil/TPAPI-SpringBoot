@@ -1,25 +1,31 @@
 package application.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @Data
+@Table(name = "membre")
 public class Membre {
-
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
+	@Column(name = "nom")
 	private String nom;
+	@Column(name = "prenom")
 	private String prenom;
+	@Column(name = "adresse")
 	private String adresse;
-	private LocalDate dateNaissance;
-	private String mail;
+	@Column(name = "dateNaissance")
+	private LocalDateTime dateNaissance;
+	@Column(name = "email")
+	private String email;
+	@Column(name = "motDePasse")
 	private String motDePasse;
-	
 }
