@@ -11,7 +11,7 @@ VOLUME /tmp
 EXPOSE 8080
 
 # Ajouter le fichier .jar de votre application dans l'image
-ARG JAR_FILE=build/libs/si-core-api-1.0.jar
+ARG JAR_FILE=build/libs/si-membre-api-1.0.jar
 ADD ${JAR_FILE} app.jar
 
 # Commande pour exécuter l'application
