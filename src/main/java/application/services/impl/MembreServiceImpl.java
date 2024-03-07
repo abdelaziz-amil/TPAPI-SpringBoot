@@ -61,7 +61,7 @@ public class MembreServiceImpl implements MembreService {
         membreDto.setPrenom(membre.getPrenom());
         membreDto.setDateNaissance(membre.getDateNaissance());
         membreDto.setAdresse(membre.getAdresse());
-        membreDto.setMail(membre.getMail());
+        membreDto.setEmail(membre.getEmail());
         membreDto.setMotDePasse(membre.getMotDePasse());
         return membreDto;
     }
@@ -75,7 +75,7 @@ public class MembreServiceImpl implements MembreService {
         membre.setNom(membreDto.getNom());
         membre.setPrenom(membreDto.getPrenom());
         membre.setDateNaissance(membreDto.getDateNaissance());
-        membre.setMail(membreDto.getMail());
+        membre.setEmail(membreDto.getEmail());
         membre.setAdresse(membreDto.getAdresse());
         membre.setMotDePasse(membreDto.getMotDePasse());
         return membre;

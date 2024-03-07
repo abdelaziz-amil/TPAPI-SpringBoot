@@ -12,7 +12,7 @@ public class MembreDto {
 	private String prenom;
 	private String adresse;
 	private LocalDate dateNaissance;
-	private String mail;
+	private String email;
 	private String motDePasse;
 
 }
