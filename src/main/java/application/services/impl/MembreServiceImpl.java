@@ -48,6 +48,25 @@ public class MembreServiceImpl {
         return membreDtos;
     }
 
+    public MembreDto updateMembre(Long membreId, MembrePostDto membreDto) {
+        Membre membre = membreRepository.findById(membreId)
+                .orElseThrow(() -> new EntityNotFoundException("Membre not found"));
+
+        // Mettez à jour les champs de l'entité membre avec les valeurs de membreDto
+        membre.setNom(membreDto.getNom());
+        membre.setPrenom(membreDto.getPrenom());
+        membre.setDateNaissance(membreDto.getDateNaissance());
+        membre.setAdresse(membreDto.getAdresse());
+        membre.setEmail(membreDto.getMail());
+        membre.setMotDePasse(membreDto.getMotDePasse());
+
+        // Sauvegardez les modifications
+        Membre updatedMembre = membreRepository.save(membre);
+
+        // Convertissez l'entité mise à jour en DTO et retournez-le
+        return membreEntityToDto(updatedMembre);
+    }
+
     /**
      * Map membre dto to membre entity
      */

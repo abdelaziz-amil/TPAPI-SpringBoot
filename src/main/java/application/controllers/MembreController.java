@@ -50,5 +50,9 @@ public class MembreController {
 	public Boolean deleteMembre(@PathVariable Long membreId){
 		return membresService.deleteMembre(membreId);
 	}
-	
+
+	@PutMapping("/{membreId}")
+	public MembreDto updateMembre(@PathVariable Long membreId, @RequestBody MembrePostDto membreDto){
+		return membresService.updateMembre(membreId, membreDto);
+	}
 }
