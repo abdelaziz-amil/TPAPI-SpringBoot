@@ -1,6 +1,7 @@
 package application.controllers;
 
 import application.dtos.MembreDto;
+import application.dtos.MembrePostDto;
 import org.springframework.web.bind.annotation.*;
 
 import application.services.impl.MembreServiceImpl;
@@ -38,7 +39,7 @@ public class MembreController {
 	 * Create a new Membre in the system
 	 */
 	@PostMapping
-	public MembreDto saveMembre(final @RequestBody MembreDto membreDto){
+	public MembreDto saveMembre(final @RequestBody MembrePostDto membreDto){
 		return membresService.saveMembre(membreDto);
 	}
 

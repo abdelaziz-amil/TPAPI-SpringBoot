@@ -1,6 +1,7 @@
 package application.services.impl;
 
 import application.dtos.MembreDto;
+import application.dtos.MembrePostDto;
 import application.entities.Membre;
 import application.repositories.MembreRepository;
 import application.services.MembreService;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin
 @Service("membresService")
-public class MembreServiceImpl implements MembreService {
+public class MembreServiceImpl {
 
 	private final MembreRepository membreRepository;
 
@@ -21,8 +22,7 @@ public class MembreServiceImpl implements MembreService {
         this.membreRepository = membreRepository;
     }
 
-    @Override
-    public MembreDto saveMembre(MembreDto membreDto) {
+    public MembreDto saveMembre(MembrePostDto membreDto) {
         // Converts the dto to the membre entity
         Membre membre = membreDtoToEntity(membreDto);
         // Save the membre entity
@@ -31,19 +31,16 @@ public class MembreServiceImpl implements MembreService {
         return membreEntityToDto(membre);
     }
 
-    @Override
     public MembreDto getMembreById(Long membreId) {
         Membre membre = membreRepository.findById(membreId).orElseThrow(() -> new EntityNotFoundException("Membre not found"));
         return membreEntityToDto(membre);
     }
 
-    @Override
     public boolean deleteMembre(Long membreId) {
         membreRepository.deleteById(membreId);
         return true;
     }
 
-    @Override
     public List<MembreDto> getAllMembres() {
         List<MembreDto> membreDtos = new ArrayList<>();
         List<Membre> membres = membreRepository.findAll();
@@ -69,9 +66,8 @@ public class MembreServiceImpl implements MembreService {
     /**
      * Map member entity to member dto
      */
-    private Membre membreDtoToEntity(MembreDto membreDto){
+    private Membre membreDtoToEntity(MembrePostDto membreDto){
         Membre membre = new Membre();
-        membre.setId(membreDto.getId());
         membre.setNom(membreDto.getNom());
         membre.setPrenom(membreDto.getPrenom());
         membre.setDateNaissance(membreDto.getDateNaissance());
