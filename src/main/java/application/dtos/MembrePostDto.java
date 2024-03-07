@@ -2,7 +2,7 @@ package application.dtos;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 public class MembrePostDto {
@@ -10,7 +10,7 @@ public class MembrePostDto {
   private String nom;
   private String prenom;
   private String adresse;
-  private LocalDateTime dateNaissance;
+  private LocalDate dateNaissance;
   private String mail;
   private String motDePasse;
 

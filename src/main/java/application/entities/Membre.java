@@ -1,6 +1,6 @@
 package application.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.*;
 
@@ -23,7 +23,7 @@ public class Membre {
 	@Column(name = "adresse")
 	private String adresse;
 	@Column(name = "dateNaissance")
-	private LocalDateTime dateNaissance;
+	private LocalDate dateNaissance;
 	@Column(name = "email")
 	private String email;
 	@Column(name = "motDePasse")
